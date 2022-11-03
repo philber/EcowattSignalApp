@@ -33,8 +33,9 @@ namespace E3Collector
                     DeviceId = deviceId,
                     Values = logs
                 };
-                await DeviceConsumption.ReportDeviceConsumptionAsync(consumptionLog);
-                //File.WriteAllText(Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "e3log.json"), fileContent);
+
+                var fileContent = Newtonsoft.Json.JsonConvert.SerializeObject(consumptionLog);
+                File.WriteAllText(Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "e3log.json"), fileContent);
             }
             finally
             {

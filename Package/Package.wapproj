@@ -56,13 +56,13 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
-    <EntryPointProjectUniqueName>..\CSN.Uwp\CSN.Uwp.csproj</EntryPointProjectUniqueName>
-    <PackageCertificateKeyFile>Package_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <EntryPointProjectUniqueName>..\ESA.Uwp\ESA.Uwp.csproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageCertificateThumbprint>C1273DF0A58FA20FFEEC14D06AF0F34D214052D9</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -114,8 +114,9 @@
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSN.Uwp\CSN.Uwp.csproj" />
+    <ProjectReference Include="..\ESA.Uwp\ESA.Uwp.csproj" />
     <ProjectReference Include="..\E3Collector\E3Collector.csproj" />
+    <ProjectReference Include="..\ESA.Uwp\ESA.Uwp.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\IndicatorGreen150x150.scale-100.png" />

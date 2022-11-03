@@ -7,11 +7,11 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap uap3">
 
-  <Identity Name='CsnEnergyApp.WePower' Publisher='CN=45D1CC4B-8C5E-4D9A-BD4C-B2213F92DEB5'  Version="1.0.12.0" />
+  <Identity Name='EcoWattSignal.Sample' Publisher='CN=philber'  Version="0.5.12.0" />
 
   <Properties>
-    <DisplayName>WeDeex</DisplayName>
-    <PublisherDisplayName>Open source app based on WeDeex by CSN Energy</PublisherDisplayName>
+    <DisplayName>EcoWatt</DisplayName>
+    <PublisherDisplayName>Open source app based on the public EcoWatt Signal API from RTE.</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -29,7 +29,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="WeDeex"
+        DisplayName="Ecowatt Signal"
         Description="Package"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"

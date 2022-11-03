@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Ecowatt Signal app</value>
+  </data>
+  <data name="Dashboard_BatteryChargeCarbonImpactLabelRun.Text" xml:space="preserve">
+    <value>The consumption of your battery charge represents</value>
+  </data>
+  <data name="Dashboard_CommonEffortSuffixTextBlock.Text" xml:space="preserve">
+    <value>economized</value>
+  </data>
+  <data name="Dashboard_CommonEffort_IndiceRun.Text" xml:space="preserve">
+    <value>gCO2</value>
+  </data>
+  <data name="Dashboard_CommonEffort_TitleTextBlock.Text" xml:space="preserve">
+    <value>Together, we are contributing to the common effort</value>
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionLabelRun.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionLabel2Run.Text" xml:space="preserve">
+    <value>from your apps</value>
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_DeviceCarbonImpactIndiceRun.Text" xml:space="preserve">
+    <value>mgCO2</value>
+  </data>
+  <data name="Dashboard_DeviceCarbonImpactLabelTextBlock.Text" xml:space="preserve">
+    <value>This is</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionLabelTextBlock.Text" xml:space="preserve">
+    <value>Your device consumes</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionTitleTextBlock.Text" xml:space="preserve">
+    <value>YOUR DEVICE</value>
+  </data>
+  <data name="Dashboard_IndividualEffortIndiceRun.Text" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="Dashboard_IndividualEffortPrefixRun.Text" xml:space="preserve">
+    <value>including</value>
+  </data>
+  <data name="Dashboard_IndividualEffortSuffixRun.Text" xml:space="preserve">
+    <value>from your contribution</value>
+  </data>
+  <data name="Menu_Dashboard" xml:space="preserve">
+    <value>EcoWatt indicator</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="UnauthorizedUserMessageTextBlock.Text" xml:space="preserve">
+    <value>The application has been designed to run on Microsoft surface devices and can not be used on desktop computers.</value>
+  </data>
+  <data name="Dashboard_BatteryChargeConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_BatteryChargeConsumptionLabelRun.Text" xml:space="preserve">
+    <value>from your battery charge</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionIncludingLabelTextBlock.Text" xml:space="preserve">
+    <value>Including</value>
+  </data>
+  <data name="Settings_VersionLabelTextBlock.Text" xml:space="preserve">
+    <value>Application Version</value>
+  </data>
+  <data name="Settings_AuthorizeNotificationsMarkdownTextBlock.Text" xml:space="preserve">
+    <value>## Authorize notifications 
+We will use notifications only to :
+
+- Inform you when the electricity consumption indicator is evolving, so that you can adapt your device's charging periods.
+- Inform about the availability of new app functionalities.</value>
+  </data>
+  <data name="Settings_DefaultCountryComboBox.PlaceholderText" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="Settings_DefaultCountryInfoMarkdownTextBlock.Text" xml:space="preserve">
+    <value>## Country 
+Access to EcoWatt signals is provided by RTE (Le reseau de transport d'electricite) via the public EcoWatt API.</value>
+  </data>
+  <data name="Settings_PageContentMarkdownTextBlock.Text" xml:space="preserve">
+    <value># Terms of use
+TBD</value>
+  </data>
+  <data name="Dashboard_BatteryAdviceMessageTextBlock.Text" xml:space="preserve">
+    <value>Use your device's battery to consume less energy</value>
+  </data>
+  <data name="Dashboard_BatteryCongratulationMessageTextBlock.Text" xml:space="preserve">
+    <value>Congratulations ! You are currently using your device battery and therefore contributing to reduce electricity consumption in France by adopting simple gestures</value>
+  </data>
+  <data name="Dashboard_CollectPopinInstallButton.Content" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Dashboard_CollectPopinMessageTextBlock.Text" xml:space="preserve">
+    <value>Click here to finish install and authorize data collection</value>
+  </data>
+  <data name="Dashboard_NetworkStateTitleTextBlock.Text" xml:space="preserve">
+    <value>Electricity consumption indicator</value>
+  </data>
+  <data name="Dashboard_PageContentMarkdownTextBlock.Text" xml:space="preserve">
+    <value># WHY THIS "ELECTRICITY WEATHER REAL-TIME INDICATOR"?
+
+This EcoWatt Signal app helps you to consume electricity more efficiently. How do you know when to reduce your consumption to avoid blackouts. For example, during cold spells in winter? This is the purpose of this “electricity weather real-time indicator”. As such, this app qualifies the level of French consumption in real time.
+ 
+At every moment, clear signals data guides you to adopt the right gestures and to ensure a good supply of electricity for everyone in France. The signals data is retrieved in real-time via the public EcoWatt API provided by RTE (Le reseau de transport d’electricite).
+
+# IT’S JUST A START! 
+
+Act on your consumption... but at the right time to save electricity during periods of high consumption.
+
+When green, the electricity consumption in France is normal. If needed, it’s the right time to fully recharge your device battery ! 
+
+When red, the electrical system is very tense with unavoidable blackouts if we do not reduce our consumption. If possible, use you device battery, it’s not the right time to charge it.
+
+When orange, the electrical system is tense. Eco-gestures are welcome.
+
+Each of us has indeed the power to reduce electricity consumption in France by adopting simple gestures. For example, if all French people adopted eco-gestures at home and at work, it is estimated that consumption could decrease by 3,000 MW. This is equivalent to the consumption of Lyon, Marseille and Nice combined, i.e., the consumption of 3 million people.
+
+# HOW CAN YOU HELP TO CONTRIBUTE?
+
+This app allows you to know when eco-gestures have the greatest impact on the electricity system in France. By postponing certain uses, you help to ensure that everyone has access to electricity during periods of supply tension. 
+
+Please make sure you turn on notifications so that you get warned when the power consumption indicator is changing! Each time you take an action to postpone the charging of your device for a more low consumption period, you contribute.</value>
+  </data>
+  <data name="NetworkStates_Bad_MarkdownContent" xml:space="preserve">
+    <value>**The electrical system is very tense with unavoidable blackouts if we do not reduce our consumption.** If possible, use your device's battery, it’s not the right time to be connected to the power supply.</value>
+  </data>
+  <data name="NetworkStates_Excellent_MarkdownContent" xml:space="preserve">
+    <value>**The electricity consumption in France is normal.** If needed, it is the right time to plug in your power cable to charge your device's battery!</value>
+  </data>
+  <data name="NetworkStates_Poor_MarkdownContent" xml:space="preserve">
+    <value>**The the electrical system is tense.** .Eco-gestures are welcome. If possible, use you device battery, it’s not the best time to charge it!</value>
+  </data>
+</root>

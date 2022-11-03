@@ -1,0 +1,11 @@
+﻿{
+  "clientId": "f92d4405-ea71-41d7-adf0-98e512b235f3",
+  "clientSecret": "8d23f025-aed9-47b0-bd6f-8662bb62e2ae",
+  "rteAuthorizeUrl": "https://digital.iservices.rte-france.com/token/oauth/",
+  "ecowattSignalUrl": "https://digital.iservices.rte-france.com/open_api/ecowatt/v4",
+  "notificationHubConnectionString": "",
+  "notificationHubPath": "",
+  "signatureId": "26aa051a91367ac2eca827395debd8fbdc6b0390",
+  "signatureKey": "06z23z/PDpoaWibwqRJUj3siOyzrhBOP5x4bp1AyEXQ=",
+  "telemetryInstrumentationKey": "6c9087a7-6ca9-4435-8c77-8c15899e3483"
+}

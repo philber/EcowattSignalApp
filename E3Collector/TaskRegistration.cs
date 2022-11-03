@@ -1,6 +1,6 @@
 ﻿namespace E3Collector
 {
-    using CSN.Common.Core;
+    using ESA.Common.Core;
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -12,7 +12,7 @@
     {
         #region Fields
 
-        private static readonly string taskPath = "WeDeex\\EnergyCollector";
+        private static readonly string taskPath = "EcowattSignal\\EnergyCollector";
 
         #endregion
 

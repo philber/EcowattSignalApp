@@ -1,38 +1,42 @@
 
- **Wedeex App**
+ # About the EcoWatt Signal app
  
-<img src="https://i.imgur.com/k5QfAmn.png" width="500px" />
+<img src="k5QfAmn.png" />
 
-*WedeexApp enables you to adapt and optimize your energy consumption according to your country energy mix production!*
- - *get a real-time simple indicator about the CO2 emission level linked
-   to electrical power generation in France*
-  - *follow your microsoft
-   surface device consumption in real time (and soon splitted by more consuming application : )*
-- *act with efficiency by following our tips according the current state of the power generation*
+*The EcoWatt Signal app enables you to adapt and optimize your energy consumption according to the electricity consumption in France*
+ - *Get a real-time simple indicator about the electricity consumption level in France to reduce your consumption to avoid blackouts*.
+ - *Follow your device consumption in real time*.
+ - *Lnow when eco-gestures have the greatest impact on the electricity system in France*.
 
-*Become a master in understanding how electricity production works and how consumption emits CO2.
-Act collectively to reduce your electrical devices usage carbon footprint!*
+By postponing certain uses, you help to ensure that everyone has access to electricity during periods of supply tension. 
 
-**This repos is an example of Wedeex's API implementation,through a UWP application**
+Act on your consumption... but at the right time to save electricity during periods of high consumption.
+ - When green, the electricity consumption in France is normal. If needed, it’s the right time to fully recharge your device battery ! 
+ - When red, the electrical system is very tense with unavoidable blackouts if we do not reduce our consumption. If possible, use you device battery, it’s not the right time to charge it.
+ - When orange, the electrical system is tense. Eco-gestures are welcome.
+
+This repos is a WIP (Work In Progress):
+ - It provides a simple example for the use of **[EcoWatt API](https://data.rte-france.com/catalog/-/api/consumption/Ecowatt/v4.0)** implementation, through a [UWP (Universal Windows Platform) application](https://learn.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide). 
+ - It is a fork of the [WeDeex App repo](https://github.com/Wedeex-DevTeam/WedeexApp) where the EcoWatt API is leveraged in lieu of the Wedeex API, which can provide energy mix production for the French territory.  
 
 ## Installation
 
-Simply compile the solution, according to your architecture, and run the main project "Package"
-![Select the "Package" project as startup](https://i.imgur.com/fb0MBDu.png)
+Simply compile the [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/) solution, according to your architecture, and run the main project "Package"
+![Select the "Package" project as startup](fb0MBDu.png)
 
 ## Settings
 
-You can retrieve the real-time indicator by requesting an api-key to subscribe.api@wedeex.com
-We offer a freemium limited access to discover our apis.
+Access to an "electricity weather real-time indicator", i.e., clear signals data , is provided by subscribing to the [EcoWatt API](https://data.rte-france.com/catalog/-/api/consumption/Ecowatt/v4.0). This API is part of the API catalog provided by RTE (Le reseau de transport d'electricite) on its [data portal](https://data.rte-france.com/), and opened to everyone. See [Terms of use](https://data.rte-france.com/en/cgu) for the RTE APIs. 
 
-You will have to configure the [settings file](CSN.Common/Configuration/Configuration.json)
+You will then have to configure the [settings file](ESA.Common/Configuration/Configuration.json) accordingly:
 
 ```json
 {
-  "apiKey": "",
-  "consumptionReportUrl": "https://wedeex-api-center.azure-api.net/internal/consumption/report",
-  "consumptionSummaryUrl": "https://wedeex-api-center.azure-api.net/consumption/summary",
-  "notificationHubConnectionString": "", 
+  "clientId": "",
+  "clientSecret": "",
+  "rteAuthorizeUrl": "https://digital.iservices.rte-france.com/token/oauth/",
+  "ecowattSignalUrl": "https://digital.iservices.rte-france.com/open_api/ecowatt/v4",
+  "notificationHubConnectionString": "",
   "notificationHubPath": "",
   "signatureId": "8d5e9b58-7f5d-4064-a664-b91851d06a50",
   "signatureKey": "06z23z/PDpoaWibwqRJUj3siOyzrhBOP5x4bp1AyEXQ=",
@@ -43,31 +47,50 @@ You will have to configure the [settings file](CSN.Common/Configuration/Configur
 where
 
 ```code
-"apiKey" is required to fetch Wedeex Realtime indicator's api
-"notificationHubConnectionString" is your Azure Notification hub connection string
-"notificationHubPath" is your Azure Notification hub path
-"signatureId" is required for integrity checks
-"signatureKey" is required for integrity checks
+"clientId" and "clientSecret" are required to fetch RTE realtime EcoWatt Signal data from the public EcoWatt API. A prior resgitration is nedeed on the RTE portal,
+"rteAuthorizeUrl" is the RTE Autorize endpoint Url to get an access token,
+"ecowattSignalUrl" is the RET EcoWatt API endpoint Url to retrieve in realtile the coWatt Signal data,
+"notificationHubConnectionString" is your Azure Notification hub connection string,
+"notificationHubPath" is your Azure Notification hub path,
+"signatureId" is required for integrity checks,
+"signatureKey" is required for integrity checks,
 "telemetryInstrumentationKey" is your Azure ApplicationInsight telemetry key
 ```
 
-## Usage
-
-Freemium API Key will let you make 1 call per 6 hour.
-You can upgrade it with customs plan using the mail contact above
-
 ## Limitations
 
-Wedeex API can provide energy mix production for the French territory. 
-More countries will be added in the next releases ;)
+The EcoWatt API allows to qualify the level of  consumption in real time for only the French territory. 
 
-Today srumutil.exe is missing in the project. We expect a new version from Windows dev team in a few weeks.
+Moreover, the srumutil.exe is missing in the project. 
 
-## Contributing
+# Contributing
+
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that 
+you have the right to, and actually do, grant us the rights to use your contribution. 
+For details, visit https://cla.opensource.microsoft.com.
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
-## License
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+# Legal Notices
+
+Microsoft and any contributors grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
+[LICENSE-CODE](LICENSE-CODE) file.
+
+Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
+may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
+The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
+Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
+
+Privacy information can be found at https://privacy.microsoft.com/en-us/
+
+Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
+or trademarks, whether by implication, estoppel or otherwise.
