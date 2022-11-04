@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.AppService;
 using Windows.Foundation.Collections;
@@ -12,6 +13,8 @@ namespace E3Collector
 {
     public class SRUMUtil
     {
+        // System Resource Usage Monitor(SRUM) is a framework that tracks resource usage by application in various granularities of time.
+        
         #region Methods
 
         public static Task CollectRealtime()
@@ -38,13 +41,13 @@ namespace E3Collector
         private static Task<int> LaunchSRUMUtil(bool isRealtime, double duration, string tempFile, CancellationToken token)
         {
             var processPath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-            //var srumutilPath = Path.Combine(Path.GetDirectoryName(processPath), "srumutil.exe");
-            var srumutilPath = Path.Combine(Path.GetDirectoryName(processPath), "powercfg.exe /srumutil");
-
+            var srumutilPath = Path.Combine(Path.GetDirectoryName(processPath), "srumutil.exe");
+ 
             var processArgs = new List<string>();
-            //processArgs.Add("-s user");
+            processArgs.Add("-s user");
             if (isRealtime)
             {
+                // Dump the per-second information of E3 provider data for the past 1 minute into file SrumUtilOut.csv
                 processArgs.Add("-rt");
             }
             //if (isUser)
@@ -53,8 +56,8 @@ namespace E3Collector
             //}
             //else
             //{
-                processArgs.Add("-s all");
-                //info.Verb = "runas";
+            //    processArgs.Add("-s all");
+            //    info.Verb = "runas";
             //}
             processArgs.Add("-t " + duration);
             processArgs.Add("-o \"" + tempFile + "\"");

@@ -230,7 +230,7 @@
 
         private void InitializeElectricityNetworkState()
         {
-            RefreshCommonStateAndEffort();
+            RefreshCommonState();
             deviceConsumptionRepository.OnNetworkStateChanged += OnDeviceConsumptionRepositoryNetworkStateChanged;
         }
 
@@ -266,7 +266,7 @@
         {
             dispatcherQueue.TryEnqueue(() =>
             {
-                RefreshCommonStateAndEffort();
+                RefreshCommonState();
             });
         }
 
@@ -293,10 +293,9 @@
             DisplayBatteryCongratulation = BatteryStatus == BatteryStatus.Discharging && BatteryStatus != BatteryStatus.NotPresent && ElectricityNetworkState != ElectricityNetworkState.Excellent;
         }
 
-        private void RefreshCommonStateAndEffort()
+        private void RefreshCommonState()
         {
             this.ElectricityNetworkState = deviceConsumptionRepository.NetworkState;
-            this.CommonEffort = FormatValue(deviceConsumptionRepository.CommonEffort / 1000);
         }
         private void RefreshDeviceConsumption(DeviceConsumption deviceConsumption)
         {

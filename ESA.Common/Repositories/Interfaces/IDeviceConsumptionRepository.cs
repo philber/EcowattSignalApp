@@ -8,8 +8,6 @@
     {
         #region Properties
 
-        double CommonEffort { get; }
-
         DeviceConsumption LastDeviceConsumption { get; set; }
 
         ElectricityNetworkState NetworkState { get; }
@@ -30,6 +28,8 @@
 
         Task LoadNetworkStateFromRteApiAsync();
 
+        void LoadDeviceConsumptionFromJsonFile();
+        
         Task ReadDeviceConsumptionFor1MinuteAsync();
 
         #endregion Methods

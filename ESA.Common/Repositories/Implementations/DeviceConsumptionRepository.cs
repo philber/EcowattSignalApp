@@ -11,6 +11,7 @@
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
@@ -22,6 +23,7 @@
     using Windows.ApplicationModel.AppService;
     using Windows.Devices.Power;
     using Windows.Foundation;
+    using Windows.Storage;
 
     public class DeviceConsumptionRepository : IDeviceConsumptionRepository
     {
@@ -36,7 +38,7 @@
 
         private Signals_obj lastEcowattSignals = null;
 
-        //private ConsumptionLogResponse lastConsumptionLogResponse = null;
+        private ConsumptionLog lastConsumptionLog;
 
         private DeviceConsumption lastDeviceConsumption = null;
 
@@ -53,8 +55,6 @@
         public event EventHandler<DeviceConsumptionChangedEventArgs> OnDeviceConsumptionChanged;
 
         public event EventHandler<ElectricityNetworkStateChangedEventArgs> OnNetworkStateChanged;
-
-        public double CommonEffort { get; private set; }
 
         public DeviceConsumption LastDeviceConsumption
         {
@@ -88,6 +88,9 @@
             {
                 // Ignore exception from RTE Ecowatt 4.0 signal api
             }
+            
+            LoadDeviceConsumptionFromJsonFile(); 
+            
             WeakReferenceMessenger.Default.Register<ElectricityNetworkStateChangedMessage>(this, this.OnElectricityNetworkStateChangedMessageReceived);
             Battery.AggregateBattery.ReportUpdated += OnAggregateBatteryReportUpdated;
             RefreshBatteryChargeCarbonImpact(Battery.AggregateBattery.GetReport());
@@ -115,20 +118,6 @@
             catch { }
         }
 
-        public Task ReadDeviceConsumptionFor1MinuteAsync()
-        {
-            return AppService.LaunchFullTrustAndConnect("ECRealtime", "EnergyCollectorRealtime", (appServiceConnection, cts) =>
-            {
-                Observable
-                    .FromEvent<TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>, AppServiceRequestReceivedEventArgs>(
-                        h => new TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>((_sender, result) => h(result))
-                        , h => appServiceConnection.RequestReceived += h
-                        , h => appServiceConnection.RequestReceived -= h)
-                    .Subscribe(OnRealTimeMessageReceived, cts.Token);
-
-                return Task.FromResult(0);
-            });
-        }
 
         private async Task<string> GetRteAccessToken(string rteAuthorizeUrl, string clientId, string clientSecret)
         {
@@ -220,6 +209,41 @@
 
             return ElectricityNetworkState.Unknown;
         }
+        public void LoadDeviceConsumptionFromJsonFile()
+        {
+            var filePath = Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "e3log.json");
+
+            if (File.Exists(filePath)) 
+            {
+                try   
+                {
+                    // retrieve last hour of data
+                    ConsumptionLog consumptionLog = (ConsumptionLog) Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+                    if (consumptionLog != null)
+                    {
+                        lastConsumptionLog = consumptionLog ;
+                    }
+                }
+                catch {}
+
+                File.Delete(filePath);
+            }
+        }
+
+        public Task ReadDeviceConsumptionFor1MinuteAsync()
+        {
+            return AppService.LaunchFullTrustAndConnect("ECRealtime", "EnergyCollectorRealtime", (appServiceConnection, cts) =>
+            {
+                Observable
+                    .FromEvent<TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>, AppServiceRequestReceivedEventArgs>(
+                        h => new TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>((_sender, result) => h(result))
+                        , h => appServiceConnection.RequestReceived += h
+                        , h => appServiceConnection.RequestReceived -= h)
+                    .Subscribe(OnRealTimeMessageReceived, cts.Token);
+
+                return Task.FromResult(0);
+            });
+        }
 
         private static string GetDeviceId()
         {
@@ -270,6 +294,21 @@
                     {
                         // TODO: exploit the signals' values as per RTE Ecowatt 4.0 Signal API documentation 
                         // https://data.rte-france.com/catalog/-/api/doc/user-guide/Ecowatt/4.0
+                    }
+
+                    ConsumptionLog lastLog = lastConsumptionLog;
+                    if (lastLog != null)
+                    {
+                        double mJOnBattery = 0;
+                        double mJPluggedIn = 0;
+
+                        foreach (Consumption value in lastLog.Values)
+                        {
+                            mJOnBattery += value.mJOnBattery;
+                            mJPluggedIn += value.mJPluggedIn;
+                        }
+
+                        // TODO: exploit the consolidated consumption' values
                     }
 
                     var deviceConsumption = new DeviceConsumption

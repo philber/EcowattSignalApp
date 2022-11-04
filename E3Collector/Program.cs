@@ -14,7 +14,7 @@
             switch (launchType)
             {
                 case "EnergyCollectorRealtime":
-                    await SRUMUtil.CollectRealtime();
+                    // await SRUMUtil.CollectRealtime();
                     break;
 
                 case "EnergyCollectorCheckRegistration":

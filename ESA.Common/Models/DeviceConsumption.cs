@@ -10,10 +10,6 @@
         [DataMember(Name = "batteryChargeConsumptionInWatt")]
         public double BatteryChargeConsumptionInWatt { get; set; }
 
-        // Impact in CO2 of the charge of battery has been removed from dashboard but can come back in future
-        //[DataMember(Name = "batteryChargeImpactInCO2")]
-        //public double BatteryChargeImpactInCO2 { get; set; }
-
         [DataMember(Name = "deviceConsumptionInWatt")]
         public double DeviceConsumptionInWatt { get; set; }
 

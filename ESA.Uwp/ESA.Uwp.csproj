@@ -306,7 +306,6 @@
     <Content Include="Assets\Dashboard\NetworkStates\bad-state-background.jpg" />
     <Content Include="Assets\Dashboard\NetworkStates\excellent-state-background.jpg" />
     <Content Include="Assets\Dashboard\NetworkStates\poor-state-background.jpg" />
-    <Content Include="Assets\logo-ecowatt-white.svg" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

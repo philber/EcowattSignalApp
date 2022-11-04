@@ -124,6 +124,8 @@
     <Compile Include="AuthToken.cs" />
     <Compile Include="Configuration\CoreConfigurationManager.cs" />
     <Compile Include="Configuration\CoreConfiguration.cs" />
+    <Compile Include="Consumption.cs" />
+    <Compile Include="ConsumptionLog.cs" />
     <Compile Include="Core\AppService.cs" />
     <Compile Include="Core\Events.cs" />
     <Compile Include="Core\SignatureDelegateHandler.cs" />

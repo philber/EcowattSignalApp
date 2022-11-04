@@ -17,7 +17,7 @@ namespace E3Collector
         public static async Task CollectBackground(string deviceId)
         {
 #if DEBUG
-            //Debugger.Launch();
+            //System.Diagnostics.Debugger.Launch();
 #endif
 
             var filePath = System.IO.Path.GetTempFileName();
@@ -34,8 +34,7 @@ namespace E3Collector
                     Values = logs
                 };
 
-                var fileContent = Newtonsoft.Json.JsonConvert.SerializeObject(consumptionLog);
-                File.WriteAllText(Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "e3log.json"), fileContent);
+                DeviceConsumption.ReportDeviceConsumption(consumptionLog);
             }
             finally
             {
